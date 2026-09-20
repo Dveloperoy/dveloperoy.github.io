@@ -1,697 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dveloperoy | Developer</title>
+<meta name="description" content="Dveloperoy — Developer & Security Researcher">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:
+        radial-gradient(circle at 50% -10%,#242424 0%,#101010 35%,#050505 75%);
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
+
+/* ================= PARTICLES ================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.particle{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#A6E22C;
+    opacity:0;
+
+    box-shadow:
+        0 0 8px #A6E22C,
+        0 0 18px rgba(166,226,44,.8),
+        0 0 30px rgba(166,226,44,.35);
+
+    animation:particleFloat 9s linear infinite;
+}
+
+.particle:nth-child(3n){
+    width:10px;
+    height:10px;
+}
+
+.particle:nth-child(4n){
+    width:5px;
+    height:5px;
+}
+
+.particle:nth-child(5n){
+    width:13px;
+    height:13px;
+}
+
+/* Particle positions */
+
+.particle:nth-child(1){left:3%;animation-delay:0s;}
+.particle:nth-child(2){left:8%;animation-delay:2s;}
+.particle:nth-child(3){left:13%;animation-delay:5s;}
+.particle:nth-child(4){left:18%;animation-delay:1s;}
+.particle:nth-child(5){left:23%;animation-delay:7s;}
+.particle:nth-child(6){left:28%;animation-delay:3s;}
+.particle:nth-child(7){left:33%;animation-delay:6s;}
+.particle:nth-child(8){left:38%;animation-delay:4s;}
+.particle:nth-child(9){left:43%;animation-delay:8s;}
+.particle:nth-child(10){left:48%;animation-delay:2.5s;}
+.particle:nth-child(11){left:53%;animation-delay:5.5s;}
+.particle:nth-child(12){left:58%;animation-delay:1.5s;}
+.particle:nth-child(13){left:63%;animation-delay:7.5s;}
+.particle:nth-child(14){left:68%;animation-delay:3.5s;}
+.particle:nth-child(15){left:73%;animation-delay:6.5s;}
+.particle:nth-child(16){left:78%;animation-delay:4.5s;}
+.particle:nth-child(17){left:83%;animation-delay:.8s;}
+.particle:nth-child(18){left:88%;animation-delay:5s;}
+.particle:nth-child(19){left:93%;animation-delay:2.8s;}
+.particle:nth-child(20){left:97%;animation-delay:7s;}
+.particle:nth-child(21){left:6%;animation-delay:4s;}
+.particle:nth-child(22){left:16%;animation-delay:8s;}
+.particle:nth-child(23){left:26%;animation-delay:1.8s;}
+.particle:nth-child(24){left:36%;animation-delay:6.8s;}
+.particle:nth-child(25){left:46%;animation-delay:3.8s;}
+.particle:nth-child(26){left:56%;animation-delay:.5s;}
+.particle:nth-child(27){left:66%;animation-delay:5.8s;}
+.particle:nth-child(28){left:76%;animation-delay:2.2s;}
+.particle:nth-child(29){left:86%;animation-delay:7.8s;}
+.particle:nth-child(30){left:96%;animation-delay:4.8s;}
 
-    <title>Dveloperoy | Developer</title>
+@keyframes particleFloat{
 
-    <meta name="description" content="Dveloperoy — Developer & Security Researcher">
+    0%{
+        transform:translate3d(0,115vh,0) scale(.3);
+        opacity:0;
+    }
 
-    <style>
+    10%{
+        opacity:.9;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    25%{
+        transform:translate3d(35px,85vh,0) scale(1);
+    }
 
-        html {
-            width: 100%;
-            min-height: 100%;
-        }
+    50%{
+        transform:translate3d(-40px,50vh,0) scale(.8);
+        opacity:.65;
+    }
 
-        body {
-            width: 100%;
-            min-height: 100vh;
+    75%{
+        transform:translate3d(30px,20vh,0) scale(1.15);
+        opacity:.8;
+    }
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    90%{
+        opacity:.4;
+    }
 
-            padding: 25px;
+    100%{
+        transform:translate3d(-25px,-15vh,0) scale(.4);
+        opacity:0;
+    }
+}
 
-            overflow-x: hidden;
-            overflow-y: auto;
+/* ================= GREEN GLOW ================= */
 
-            background:
-                radial-gradient(
-                    circle at 50% -10%,
-                    #242424 0%,
-                    #101010 35%,
-                    #050505 75%
-                );
+.glow{
+    position:fixed;
+    width:400px;
+    height:400px;
+    border-radius:50%;
 
-            color: #fff;
+    background:
+        radial-gradient(
+            circle,
+            rgba(166,226,44,.08),
+            transparent 70%
+        );
 
-            font-family: Arial, sans-serif;
-        }
+    filter:blur(20px);
+    pointer-events:none;
+    animation:glowMove 10s ease-in-out infinite alternate;
+    z-index:0;
+}
 
+@keyframes glowMove{
 
-        /* =====================================
-           ANIMATED PARTICLES
-           ===================================== */
+    0%{
+        transform:translate(-35vw,-25vh) scale(.8);
+    }
 
-        .particles {
-            position: fixed;
+    50%{
+        transform:translate(25vw,15vh) scale(1.1);
+    }
 
-            inset: 0;
+    100%{
+        transform:translate(-5vw,35vh) scale(.9);
+    }
+}
 
-            width: 100%;
-            height: 100%;
+/* ================= PAGE ================= */
 
-            overflow: hidden;
+.page{
+    position:relative;
+    z-index:5;
 
-            pointer-events: none;
+    width:100%;
+    min-height:100vh;
 
-            z-index: 0;
-        }
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
+    padding:25px;
+}
 
-        .particle {
-            position: absolute;
+/* ================= CARD ================= */
 
-            width: 7px;
-            height: 7px;
+.card{
+    position:relative;
 
-            border-radius: 50%;
+    width:100%;
+    max-width:520px;
 
-            background: #A6E22C;
+    padding:40px 28px;
 
-            opacity: 0;
+    text-align:center;
 
-            box-shadow:
-                0 0 8px #A6E22C,
-                0 0 18px rgba(166,226,44,0.8),
-                0 0 30px rgba(166,226,44,0.35);
+    background:rgba(255,255,255,.055);
 
-            animation:
-                particleFloat 9s linear infinite;
-        }
+    border:1px solid rgba(255,255,255,.12);
 
+    border-radius:28px;
 
-        .particle:nth-child(3n) {
-            width: 10px;
-            height: 10px;
-        }
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 
-        .particle:nth-child(4n) {
-            width: 5px;
-            height: 5px;
-        }
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55),
+        0 0 60px rgba(166,226,44,.04);
+}
 
-        .particle:nth-child(5n) {
-            width: 13px;
-            height: 13px;
-        }
-
-
-        .particle:nth-child(1)  { left: 3%;  animation-delay: 0s; }
-        .particle:nth-child(2)  { left: 8%;  animation-delay: 2s; }
-        .particle:nth-child(3)  { left: 13%; animation-delay: 5s; }
-        .particle:nth-child(4)  { left: 18%; animation-delay: 1s; }
-        .particle:nth-child(5)  { left: 23%; animation-delay: 7s; }
-        .particle:nth-child(6)  { left: 28%; animation-delay: 3s; }
-        .particle:nth-child(7)  { left: 33%; animation-delay: 6s; }
-        .particle:nth-child(8)  { left: 38%; animation-delay: 4s; }
-        .particle:nth-child(9)  { left: 43%; animation-delay: 8s; }
-        .particle:nth-child(10) { left: 48%; animation-delay: 2.5s; }
-
-        .particle:nth-child(11) { left: 53%; animation-delay: 5.5s; }
-        .particle:nth-child(12) { left: 58%; animation-delay: 1.5s; }
-        .particle:nth-child(13) { left: 63%; animation-delay: 7.5s; }
-        .particle:nth-child(14) { left: 68%; animation-delay: 3.5s; }
-        .particle:nth-child(15) { left: 73%; animation-delay: 6.5s; }
-        .particle:nth-child(16) { left: 78%; animation-delay: 4.5s; }
-        .particle:nth-child(17) { left: 83%; animation-delay: 0.8s; }
-        .particle:nth-child(18) { left: 88%; animation-delay: 5s; }
-        .particle:nth-child(19) { left: 93%; animation-delay: 2.8s; }
-        .particle:nth-child(20) { left: 97%; animation-delay: 7s; }
-
-        .particle:nth-child(21) { left: 6%;  animation-delay: 4s; }
-        .particle:nth-child(22) { left: 16%; animation-delay: 8s; }
-        .particle:nth-child(23) { left: 26%; animation-delay: 1.8s; }
-        .particle:nth-child(24) { left: 36%; animation-delay: 6.8s; }
-        .particle:nth-child(25) { left: 46%; animation-delay: 3.8s; }
-        .particle:nth-child(26) { left: 56%; animation-delay: 0.5s; }
-        .particle:nth-child(27) { left: 66%; animation-delay: 5.8s; }
-        .particle:nth-child(28) { left: 76%; animation-delay: 2.2s; }
-        .particle:nth-child(29) { left: 86%; animation-delay: 7.8s; }
-        .particle:nth-child(30) { left: 96%; animation-delay: 4.8s; }
-
-
-        @keyframes particleFloat {
-
-            0% {
-                transform:
-                    translate3d(0, 115vh, 0)
-                    scale(0.3);
-
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 0.9;
-            }
+/* ================= AVATAR ================= */
 
-            25% {
-                transform:
-                    translate3d(35px, 85vh, 0)
-                    scale(1);
-            }
+.avatar{
+    width:95px;
+    height:95px;
 
-            50% {
-                transform:
-                    translate3d(-40px, 50vh, 0)
-                    scale(0.8);
+    margin:0 auto 20px;
 
-                opacity: 0.65;
-            }
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-            75% {
-                transform:
-                    translate3d(30px, 20vh, 0)
-                    scale(1.15);
+    border-radius:50%;
 
-                opacity: 0.8;
-            }
+    background:#A6E22C;
+    color:#000;
 
-            90% {
-                opacity: 0.4;
-            }
+    font-size:35px;
+    font-weight:bold;
 
-            100% {
-                transform:
-                    translate3d(-25px, -15vh, 0)
-                    scale(0.4);
+    box-shadow:
+        0 0 30px rgba(166,226,44,.25),
+        0 0 70px rgba(166,226,44,.08);
 
-                opacity: 0;
-            }
-        }
+    animation:logoGlow 4s ease-in-out infinite;
+}
 
+@keyframes logoGlow{
 
-        /* =====================================
-           MOVING GREEN GLOW
-           ===================================== */
+    0%,100%{
+        box-shadow:
+            0 0 30px rgba(166,226,44,.22),
+            0 0 70px rgba(166,226,44,.08);
+    }
 
-        .glow {
-            position: fixed;
+    50%{
+        box-shadow:
+            0 0 45px rgba(166,226,44,.42),
+            0 0 90px rgba(166,226,44,.14);
+    }
+}
 
-            width: 400px;
-            height: 400px;
+/* ================= TITLE ================= */
 
-            border-radius: 50%;
+h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(166,226,44,0.08),
-                    transparent 70%
-                );
+.role{
+    color:#A6E22C;
+    font-size:15px;
+    margin-bottom:25px;
 
-            filter: blur(20px);
+    text-shadow:
+        0 0 10px rgba(166,226,44,.25);
+}
 
-            pointer-events: none;
+.line{
+    width:60px;
+    height:2px;
 
-            animation:
-                glowMove 10s ease-in-out infinite alternate;
+    background:#A6E22C;
 
-            z-index: 0;
-        }
+    margin:0 auto 25px;
 
+    box-shadow:
+        0 0 12px rgba(166,226,44,.5);
+}
 
-        @keyframes glowMove {
+/* ================= INFO ================= */
 
-            0% {
-                transform:
-                    translate(-35vw, -25vh)
-                    scale(0.8);
-            }
+.info{
+    text-align:left;
+}
 
-            50% {
-                transform:
-                    translate(25vw, 15vh)
-                    scale(1.1);
-            }
+.item{
+    padding:15px 0;
 
-            100% {
-                transform:
-                    translate(-5vw, 35vh)
-                    scale(0.9);
-            }
-        }
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
 
+.label{
+    display:block;
 
-        /* =====================================
-           CENTER CONTAINER
-           ===================================== */
+    color:#888;
 
-        .page {
-            position: relative;
+    font-size:12px;
 
-            z-index: 5;
+    margin-bottom:5px;
 
-            width: 100%;
+    text-transform:uppercase;
 
-            min-height: calc(100vh - 50px);
+    letter-spacing:1px;
+}
 
-            display: flex;
+.value{
+    color:#eee;
+    font-size:16px;
+}
 
-            justify-content: center;
+/* ================= TELEGRAM BUTTON ================= */
 
-            align-items: center;
+.contact{
+    display:block;
 
-            padding: 20px 0;
-        }
+    width:100%;
 
+    margin-top:25px;
 
-        /* =====================================
-           MAIN CARD
-           ===================================== */
+    padding:14px 20px;
 
-        .card {
-            position: relative;
+    border-radius:14px;
 
-            width: 100%;
+    background:#A6E22C;
+    color:#050505;
 
-            max-width: 520px;
+    text-decoration:none;
 
-            padding: 40px 28px;
+    font-size:15px;
+    font-weight:bold;
 
-            text-align: center;
+    box-shadow:
+        0 0 20px rgba(166,226,44,.18);
 
-            background:
-                rgba(255,255,255,0.055);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
 
-            border:
-                1px solid rgba(255,255,255,0.12);
+.contact:hover{
+    transform:translateY(-2px);
 
-            border-radius: 28px;
+    background:#B8FF2C;
 
-            backdrop-filter: blur(22px);
+    box-shadow:
+        0 0 30px rgba(166,226,44,.35);
+}
 
-            -webkit-backdrop-filter: blur(22px);
+.contact:active{
+    transform:scale(.97);
+}
 
-            box-shadow:
-                0 25px 80px rgba(0,0,0,0.55),
-                0 0 60px rgba(166,226,44,0.04);
-        }
+/* ================= FOOTER ================= */
 
+.footer{
+    margin-top:28px;
 
-        /* =====================================
-           LOGO
-           ===================================== */
+    color:#666;
 
-        .avatar {
-            width: 95px;
-            height: 95px;
+    font-size:12px;
+}
 
-            margin: 0 auto 20px;
+.accent{
+    color:#A6E22C;
 
-            display: flex;
+    text-shadow:
+        0 0 8px rgba(166,226,44,.3);
+}
 
-            align-items: center;
-            justify-content: center;
+/* ================= MOBILE ================= */
 
-            border-radius: 50%;
+@media(max-width:480px){
 
-            background: #A6E22C;
+    .page{
+        min-height:100vh;
 
-            color: #000;
+        padding:20px 18px;
+    }
 
-            font-size: 35px;
+    .card{
+        width:100%;
+        max-width:390px;
 
-            font-weight: bold;
+        padding:34px 22px;
 
-            box-shadow:
-                0 0 30px rgba(166,226,44,0.25),
-                0 0 70px rgba(166,226,44,0.08);
+        border-radius:24px;
+    }
 
-            animation:
-                logoGlow 4s ease-in-out infinite;
-        }
+    .avatar{
+        width:88px;
+        height:88px;
 
+        font-size:32px;
+    }
 
-        @keyframes logoGlow {
+    h1{
+        font-size:29px;
+    }
 
-            0%,
-            100% {
-                box-shadow:
-                    0 0 30px rgba(166,226,44,0.22),
-                    0 0 70px rgba(166,226,44,0.08);
-            }
+    .particle{
+        width:6px;
+        height:6px;
+    }
 
-            50% {
-                box-shadow:
-                    0 0 45px rgba(166,226,44,0.42),
-                    0 0 90px rgba(166,226,44,0.14);
-            }
-        }
+    .particle:nth-child(3n){
+        width:8px;
+        height:8px;
+    }
 
-
-        /* =====================================
-           TEXT
-           ===================================== */
-
-        h1 {
-            font-size: 32px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .role {
-            color: #A6E22C;
-
-            font-size: 15px;
-
-            margin-bottom: 25px;
-
-            text-shadow:
-                0 0 10px rgba(166,226,44,0.25);
-        }
-
-
-        .line {
-            width: 60px;
-
-            height: 2px;
-
-            background: #A6E22C;
-
-            margin: 0 auto 25px;
-
-            box-shadow:
-                0 0 12px rgba(166,226,44,0.5);
-        }
-
-
-        /* =====================================
-           INFORMATION
-           ===================================== */
-
-        .info {
-            text-align: left;
-        }
-
-
-        .item {
-            padding: 15px 0;
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.08);
-        }
-
-
-        .label {
-            display: block;
-
-            color: #888;
-
-            font-size: 12px;
-
-            margin-bottom: 5px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-
-        .value {
-            color: #eee;
-
-            font-size: 16px;
-        }
-
-
-        /* =====================================
-           FOOTER
-           ===================================== */
-
-        .footer {
-            margin-top: 28px;
-
-            color: #666;
-
-            font-size: 12px;
-        }
-
-
-        .accent {
-            color: #A6E22C;
-
-            text-shadow:
-                0 0 8px rgba(166,226,44,0.3);
-        }
-
-
-        /* =====================================
-           MOBILE
-           ===================================== */
-
-        @media (max-width: 480px) {
-
-            body {
-                padding: 18px;
-
-                /*
-                 * Page stays centered horizontally.
-                 * Vertical scroll remains available.
-                 */
-                align-items: flex-start;
-            }
-
-
-            .page {
-                min-height: calc(100vh - 36px);
-
-                width: 100%;
-
-                display: flex;
-
-                justify-content: center;
-
-                align-items: center;
-
-                padding: 20px 0;
-            }
-
-
-            .card {
-                width: 100%;
-
-                max-width: 390px;
-
-                padding: 34px 22px;
-
-                border-radius: 24px;
-            }
-
-
-            .avatar {
-                width: 88px;
-                height: 88px;
-
-                font-size: 32px;
-            }
-
-
-            h1 {
-                font-size: 29px;
-            }
-
-
-            .particle {
-                width: 6px;
-                height: 6px;
-            }
-
-
-            .particle:nth-child(3n) {
-                width: 8px;
-                height: 8px;
-            }
-
-
-            .particle:nth-child(5n) {
-                width: 10px;
-                height: 10px;
-            }
-
-        }
-
-    </style>
+    .particle:nth-child(5n){
+        width:10px;
+        height:10px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- PARTICLES -->
 
-    <!-- =====================================
-         BACKGROUND PARTICLES
-         ===================================== -->
+<div class="particles">
 
-    <div class="particles">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
 
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
 
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
 
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
+</div>
 
-    </div>
-
-
-    <!-- Moving background glow -->
-
-    <div class="glow"></div>
+<div class="glow"></div>
 
 
-    <!-- =====================================
-         CENTER PAGE
-         ===================================== -->
+<!-- MAIN PAGE -->
 
-    <div class="page">
+<div class="page">
+
+    <div class="card">
+
+        <!-- AVATAR -->
+
+        <div class="avatar">D</div>
+
+        <!-- NAME -->
+
+        <h1>Dveloperoy</h1>
+
+        <div class="role">
+            Developer & Security Researcher
+        </div>
+
+        <div class="line"></div>
 
 
-        <!-- =====================================
-             MAIN PROFILE CARD
-             ===================================== -->
+        <!-- PROFILE INFORMATION -->
 
-        <div class="card">
+        <div class="info">
 
-
-            <!-- Logo -->
-
-            <div class="avatar">
-                D
+            <div class="item">
+                <span class="label">Real Name</span>
+                <span class="value">Rajdeep Roy</span>
             </div>
 
-
-            <!-- Name -->
-
-            <h1>
-                Dveloperoy
-            </h1>
-
-
-            <!-- Role -->
-
-            <div class="role">
-                Developer & Security Researcher
+            <div class="item">
+                <span class="label">Owner</span>
+                <span class="value">Dveloperoy</span>
             </div>
 
-
-            <!-- Divider -->
-
-            <div class="line"></div>
-
-
-            <!-- Information -->
-
-            <div class="info">
-
-
-                <div class="item">
-
-                    <span class="label">
-                        Owner
-                    </span>
-
-                    <span class="value">
-                        Dveloperoy
-                    </span>
-
-                </div>
-
-
-                <div class="item">
-
-                    <span class="label">
-                        Role
-                    </span>
-
-                    <span class="value">
-                        Developer & Security Researcher
-                    </span>
-
-                </div>
-
-
-                <div class="item">
-
-                    <span class="label">
-                        Project
-                    </span>
-
-                    <span class="value">
-                        Coming Soon
-                    </span>
-
-                </div>
-
-
-                <div class="item">
-
-                    <span class="label">
-                        Focus
-                    </span>
-
-                    <span class="value">
-                        App Development • Security Researcher
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- Footer -->
-
-            <div class="footer">
-
-                <span class="accent">
-                    @Dveloperoy
+            <div class="item">
+                <span class="label">Role</span>
+                <span class="value">
+                    Developer & Security Researcher
                 </span>
-
-                © 2026
-
             </div>
 
+            <div class="item">
+                <span class="label">Project</span>
+                <span class="value">
+                    Coming Soon
+                </span>
+            </div>
+
+            <div class="item">
+                <span class="label">Focus</span>
+                <span class="value">
+                    App Development • Security Researcher
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <a
+            class="contact"
+            href="https://t.me/dveloperoy"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Contact Me on Telegram
+        </a>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <span class="accent">@Dveloperoy</span>
+            © 2026
 
         </div>
 
     </div>
 
+</div>
 
 </body>
 </html>
