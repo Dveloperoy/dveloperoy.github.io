@@ -21,13 +21,77 @@
             justify-content: center;
             align-items: center;
             padding: 25px;
+            overflow: hidden;
+
             background:
                 radial-gradient(circle at top, #1c1c1c, #050505 55%);
+
             color: #fff;
             font-family: Arial, sans-serif;
         }
 
+        /* Animated background */
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #A6E22C;
+            border-radius: 50%;
+            opacity: 0;
+            box-shadow: 0 0 8px #A6E22C;
+
+            animation: float 8s linear infinite;
+        }
+
+        .particle:nth-child(1)  { left: 5%;  animation-delay: 0s; }
+        .particle:nth-child(2)  { left: 15%; animation-delay: 2s; }
+        .particle:nth-child(3)  { left: 25%; animation-delay: 5s; }
+        .particle:nth-child(4)  { left: 35%; animation-delay: 1s; }
+        .particle:nth-child(5)  { left: 45%; animation-delay: 4s; }
+        .particle:nth-child(6)  { left: 55%; animation-delay: 7s; }
+        .particle:nth-child(7)  { left: 65%; animation-delay: 3s; }
+        .particle:nth-child(8)  { left: 75%; animation-delay: 6s; }
+        .particle:nth-child(9)  { left: 85%; animation-delay: 2.5s; }
+        .particle:nth-child(10) { left: 95%; animation-delay: 4.5s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(110vh) translateX(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.45;
+            }
+
+            50% {
+                transform: translateY(50vh) translateX(25px);
+                opacity: 0.25;
+            }
+
+            85% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(-20px);
+                opacity: 0;
+            }
+        }
+
+        /* Main card */
         .card {
+            position: relative;
+            z-index: 2;
+
             width: 100%;
             max-width: 520px;
             padding: 40px 28px;
@@ -40,7 +104,9 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
 
-            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.5),
+                0 0 50px rgba(166,226,44,0.03);
         }
 
         .avatar {
@@ -53,13 +119,32 @@
             justify-content: center;
 
             border-radius: 50%;
+
             background: #A6E22C;
             color: #000;
 
             font-size: 35px;
             font-weight: bold;
 
-            box-shadow: 0 0 35px rgba(166,226,44,0.25);
+            box-shadow:
+                0 0 25px rgba(166,226,44,0.20),
+                0 0 60px rgba(166,226,44,0.08);
+
+            animation: logoGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% {
+                box-shadow:
+                    0 0 25px rgba(166,226,44,0.20),
+                    0 0 60px rgba(166,226,44,0.08);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 35px rgba(166,226,44,0.35),
+                    0 0 80px rgba(166,226,44,0.12);
+            }
         }
 
         h1 {
@@ -78,6 +163,8 @@
             height: 2px;
             background: #A6E22C;
             margin: 0 auto 25px;
+
+            box-shadow: 0 0 10px rgba(166,226,44,0.35);
         }
 
         .info {
@@ -112,11 +199,27 @@
         .accent {
             color: #A6E22C;
         }
+
     </style>
 </head>
 
 <body>
 
+    <!-- Background particles -->
+    <div class="particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
+
+    <!-- Main profile -->
     <div class="card">
 
         <div class="avatar">
