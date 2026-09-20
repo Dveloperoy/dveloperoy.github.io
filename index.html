@@ -9,109 +9,412 @@
     <meta name="description" content="Dveloperoy — Developer & Security Researcher">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            width: 100%;
+            min-height: 100%;
+        }
+
         body {
+            width: 100%;
             min-height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             padding: 25px;
-            overflow: hidden;
+
+            /*
+             * IMPORTANT:
+             * Vertical scrolling enabled
+             * Horizontal scrolling disabled
+             */
+            overflow-x: hidden;
+            overflow-y: auto;
 
             background:
-                radial-gradient(circle at top, #1c1c1c, #050505 55%);
+                radial-gradient(
+                    circle at 50% -10%,
+                    #242424 0%,
+                    #101010 35%,
+                    #050505 75%
+                );
 
             color: #fff;
+
             font-family: Arial, sans-serif;
         }
 
-        /* Animated background */
+
+        /* =====================================
+           ANIMATED PARTICLES
+           ===================================== */
+
         .particles {
             position: fixed;
+
             inset: 0;
+
+            width: 100%;
+            height: 100%;
+
             overflow: hidden;
+
             pointer-events: none;
+
             z-index: 0;
         }
 
+
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #A6E22C;
-            border-radius: 50%;
-            opacity: 0;
-            box-shadow: 0 0 8px #A6E22C;
 
-            animation: float 8s linear infinite;
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #A6E22C;
+
+            opacity: 0;
+
+            box-shadow:
+                0 0 8px #A6E22C,
+                0 0 18px rgba(166,226,44,0.8),
+                0 0 30px rgba(166,226,44,0.35);
+
+            animation:
+                particleFloat 9s linear infinite;
         }
 
-        .particle:nth-child(1)  { left: 5%;  animation-delay: 0s; }
-        .particle:nth-child(2)  { left: 15%; animation-delay: 2s; }
-        .particle:nth-child(3)  { left: 25%; animation-delay: 5s; }
-        .particle:nth-child(4)  { left: 35%; animation-delay: 1s; }
-        .particle:nth-child(5)  { left: 45%; animation-delay: 4s; }
-        .particle:nth-child(6)  { left: 55%; animation-delay: 7s; }
-        .particle:nth-child(7)  { left: 65%; animation-delay: 3s; }
-        .particle:nth-child(8)  { left: 75%; animation-delay: 6s; }
-        .particle:nth-child(9)  { left: 85%; animation-delay: 2.5s; }
-        .particle:nth-child(10) { left: 95%; animation-delay: 4.5s; }
 
-        @keyframes float {
+        /* Different particle sizes */
+
+        .particle:nth-child(3n) {
+            width: 10px;
+            height: 10px;
+        }
+
+        .particle:nth-child(4n) {
+            width: 5px;
+            height: 5px;
+        }
+
+        .particle:nth-child(5n) {
+            width: 13px;
+            height: 13px;
+        }
+
+
+        /* Particle positions + timing */
+
+        .particle:nth-child(1)  {
+            left: 3%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2)  {
+            left: 8%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3)  {
+            left: 13%;
+            animation-delay: 5s;
+        }
+
+        .particle:nth-child(4)  {
+            left: 18%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(5)  {
+            left: 23%;
+            animation-delay: 7s;
+        }
+
+        .particle:nth-child(6)  {
+            left: 28%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(7)  {
+            left: 33%;
+            animation-delay: 6s;
+        }
+
+        .particle:nth-child(8)  {
+            left: 38%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(9)  {
+            left: 43%;
+            animation-delay: 8s;
+        }
+
+        .particle:nth-child(10) {
+            left: 48%;
+            animation-delay: 2.5s;
+        }
+
+        .particle:nth-child(11) {
+            left: 53%;
+            animation-delay: 5.5s;
+        }
+
+        .particle:nth-child(12) {
+            left: 58%;
+            animation-delay: 1.5s;
+        }
+
+        .particle:nth-child(13) {
+            left: 63%;
+            animation-delay: 7.5s;
+        }
+
+        .particle:nth-child(14) {
+            left: 68%;
+            animation-delay: 3.5s;
+        }
+
+        .particle:nth-child(15) {
+            left: 73%;
+            animation-delay: 6.5s;
+        }
+
+        .particle:nth-child(16) {
+            left: 78%;
+            animation-delay: 4.5s;
+        }
+
+        .particle:nth-child(17) {
+            left: 83%;
+            animation-delay: 0.8s;
+        }
+
+        .particle:nth-child(18) {
+            left: 88%;
+            animation-delay: 5s;
+        }
+
+        .particle:nth-child(19) {
+            left: 93%;
+            animation-delay: 2.8s;
+        }
+
+        .particle:nth-child(20) {
+            left: 97%;
+            animation-delay: 7s;
+        }
+
+        .particle:nth-child(21) {
+            left: 6%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(22) {
+            left: 16%;
+            animation-delay: 8s;
+        }
+
+        .particle:nth-child(23) {
+            left: 26%;
+            animation-delay: 1.8s;
+        }
+
+        .particle:nth-child(24) {
+            left: 36%;
+            animation-delay: 6.8s;
+        }
+
+        .particle:nth-child(25) {
+            left: 46%;
+            animation-delay: 3.8s;
+        }
+
+        .particle:nth-child(26) {
+            left: 56%;
+            animation-delay: 0.5s;
+        }
+
+        .particle:nth-child(27) {
+            left: 66%;
+            animation-delay: 5.8s;
+        }
+
+        .particle:nth-child(28) {
+            left: 76%;
+            animation-delay: 2.2s;
+        }
+
+        .particle:nth-child(29) {
+            left: 86%;
+            animation-delay: 7.8s;
+        }
+
+        .particle:nth-child(30) {
+            left: 96%;
+            animation-delay: 4.8s;
+        }
+
+
+        /* Particle animation */
+
+        @keyframes particleFloat {
+
             0% {
-                transform: translateY(110vh) translateX(0);
+                transform:
+                    translate3d(0, 115vh, 0)
+                    scale(0.3);
+
                 opacity: 0;
             }
 
-            15% {
-                opacity: 0.45;
+            10% {
+                opacity: 0.9;
+            }
+
+            25% {
+                transform:
+                    translate3d(35px, 85vh, 0)
+                    scale(1);
             }
 
             50% {
-                transform: translateY(50vh) translateX(25px);
-                opacity: 0.25;
+                transform:
+                    translate3d(-40px, 50vh, 0)
+                    scale(0.8);
+
+                opacity: 0.65;
             }
 
-            85% {
+            75% {
+                transform:
+                    translate3d(30px, 20vh, 0)
+                    scale(1.15);
+
+                opacity: 0.8;
+            }
+
+            90% {
                 opacity: 0.4;
             }
 
             100% {
-                transform: translateY(-10vh) translateX(-20px);
+                transform:
+                    translate3d(-25px, -15vh, 0)
+                    scale(0.4);
+
                 opacity: 0;
             }
         }
 
-        /* Main card */
+
+        /* =====================================
+           MOVING GREEN BACKGROUND GLOW
+           ===================================== */
+
+        .glow {
+            position: fixed;
+
+            width: 400px;
+            height: 400px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(166,226,44,0.08),
+                    transparent 70%
+                );
+
+            filter: blur(20px);
+
+            pointer-events: none;
+
+            animation:
+                glowMove 10s ease-in-out infinite alternate;
+
+            z-index: 0;
+        }
+
+
+        @keyframes glowMove {
+
+            0% {
+                transform:
+                    translate(-35vw, -25vh)
+                    scale(0.8);
+            }
+
+            50% {
+                transform:
+                    translate(25vw, 15vh)
+                    scale(1.1);
+            }
+
+            100% {
+                transform:
+                    translate(-5vw, 35vh)
+                    scale(0.9);
+            }
+        }
+
+
+        /* =====================================
+           MAIN CARD
+           ===================================== */
+
         .card {
             position: relative;
-            z-index: 2;
+
+            z-index: 5;
 
             width: 100%;
+
             max-width: 520px;
+
             padding: 40px 28px;
+
+            margin: 20px 0;
+
             text-align: center;
 
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.10);
+            background:
+                rgba(255,255,255,0.055);
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+
             border-radius: 28px;
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(22px);
+
+            -webkit-backdrop-filter: blur(22px);
 
             box-shadow:
-                0 25px 80px rgba(0,0,0,0.5),
-                0 0 50px rgba(166,226,44,0.03);
+                0 25px 80px rgba(0,0,0,0.55),
+                0 0 60px rgba(166,226,44,0.04);
         }
+
+
+        /* =====================================
+           LOGO
+           ===================================== */
 
         .avatar {
             width: 95px;
             height: 95px;
+
             margin: 0 auto 20px;
 
             display: flex;
@@ -121,92 +424,213 @@
             border-radius: 50%;
 
             background: #A6E22C;
+
             color: #000;
 
             font-size: 35px;
+
             font-weight: bold;
 
             box-shadow:
-                0 0 25px rgba(166,226,44,0.20),
-                0 0 60px rgba(166,226,44,0.08);
+                0 0 30px rgba(166,226,44,0.25),
+                0 0 70px rgba(166,226,44,0.08);
 
-            animation: logoGlow 4s ease-in-out infinite;
+            animation:
+                logoGlow 4s ease-in-out infinite;
         }
 
+
         @keyframes logoGlow {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow:
-                    0 0 25px rgba(166,226,44,0.20),
-                    0 0 60px rgba(166,226,44,0.08);
+                    0 0 30px rgba(166,226,44,0.22),
+                    0 0 70px rgba(166,226,44,0.08);
             }
 
             50% {
                 box-shadow:
-                    0 0 35px rgba(166,226,44,0.35),
-                    0 0 80px rgba(166,226,44,0.12);
+                    0 0 45px rgba(166,226,44,0.42),
+                    0 0 90px rgba(166,226,44,0.14);
             }
         }
 
+
+        /* =====================================
+           TEXT
+           ===================================== */
+
         h1 {
             font-size: 32px;
+
             margin-bottom: 8px;
         }
 
+
         .role {
             color: #A6E22C;
+
             font-size: 15px;
+
             margin-bottom: 25px;
+
+            text-shadow:
+                0 0 10px rgba(166,226,44,0.25);
         }
+
 
         .line {
             width: 60px;
+
             height: 2px;
+
             background: #A6E22C;
+
             margin: 0 auto 25px;
 
-            box-shadow: 0 0 10px rgba(166,226,44,0.35);
+            box-shadow:
+                0 0 12px rgba(166,226,44,0.5);
         }
+
+
+        /* =====================================
+           INFORMATION
+           ===================================== */
 
         .info {
             text-align: left;
         }
 
+
         .item {
             padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
         }
+
 
         .label {
             display: block;
+
             color: #888;
+
             font-size: 12px;
+
             margin-bottom: 5px;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
         }
 
+
         .value {
             color: #eee;
+
             font-size: 16px;
         }
 
+
+        /* =====================================
+           FOOTER
+           ===================================== */
+
         .footer {
             margin-top: 28px;
+
             color: #666;
+
             font-size: 12px;
         }
 
+
         .accent {
             color: #A6E22C;
+
+            text-shadow:
+                0 0 8px rgba(166,226,44,0.3);
+        }
+
+
+        /* =====================================
+           MOBILE
+           ===================================== */
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 18px;
+
+                /*
+                 * Keep scrolling enabled on mobile
+                 */
+                overflow-x: hidden;
+                overflow-y: auto;
+
+                align-items: flex-start;
+            }
+
+
+            .card {
+                width: 100%;
+
+                max-width: 390px;
+
+                padding: 34px 22px;
+
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                border-radius: 24px;
+            }
+
+
+            .avatar {
+                width: 88px;
+                height: 88px;
+
+                font-size: 32px;
+            }
+
+
+            h1 {
+                font-size: 29px;
+            }
+
+
+            .particle {
+                width: 6px;
+                height: 6px;
+            }
+
+
+            .particle:nth-child(3n) {
+                width: 8px;
+                height: 8px;
+            }
+
+
+            .particle:nth-child(5n) {
+                width: 10px;
+                height: 10px;
+            }
         }
 
     </style>
 </head>
 
+
 <body>
 
-    <!-- Background particles -->
+
+    <!-- =====================================
+         BACKGROUND PARTICLES
+         ===================================== -->
+
     <div class="particles">
+
         <span class="particle"></span>
         <span class="particle"></span>
         <span class="particle"></span>
@@ -217,52 +641,145 @@
         <span class="particle"></span>
         <span class="particle"></span>
         <span class="particle"></span>
+
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+
     </div>
 
-    <!-- Main profile -->
+
+    <!-- Moving glow -->
+
+    <div class="glow"></div>
+
+
+    <!-- =====================================
+         MAIN PROFILE
+         ===================================== -->
+
     <div class="card">
+
+
+        <!-- Logo -->
 
         <div class="avatar">
             D
         </div>
 
-        <h1>Dveloperoy</h1>
+
+        <!-- Name -->
+
+        <h1>
+            Dveloperoy
+        </h1>
+
+
+        <!-- Role -->
 
         <div class="role">
             Developer & Security Researcher
         </div>
 
+
+        <!-- Divider -->
+
         <div class="line"></div>
+
+
+        <!-- Information -->
 
         <div class="info">
 
-            <div class="item">
-                <span class="label">Owner</span>
-                <span class="value">Dveloperoy</span>
-            </div>
 
             <div class="item">
-                <span class="label">Role</span>
-                <span class="value">Developer & Security Researcher</span>
+
+                <span class="label">
+                    Owner
+                </span>
+
+                <span class="value">
+                    Dveloperoy
+                </span>
+
             </div>
 
-            <div class="item">
-                <span class="label">Project</span>
-                <span class="value">PraiemOx</span>
-            </div>
 
             <div class="item">
-                <span class="label">Focus</span>
-                <span class="value">Android • Software • Security</span>
+
+                <span class="label">
+                    Role
+                </span>
+
+                <span class="value">
+                    Developer & Security Researcher
+                </span>
+
             </div>
+
+
+            <div class="item">
+
+                <span class="label">
+                    Project
+                </span>
+
+                <span class="value">
+                    Coming soon
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span class="label">
+                    Focus
+                </span>
+
+                <span class="value">
+                    Development • Security Researcher
+                </span>
+
+            </div>
+
 
         </div>
+
+
+        <!-- Footer -->
 
         <div class="footer">
-            <span class="accent">@Dveloperoy</span> · © 2026
+
+            <span class="accent">
+                @Dveloperoy
+            </span>
+
+            · © 2026
+
         </div>
 
+
     </div>
+
 
 </body>
 </html>
