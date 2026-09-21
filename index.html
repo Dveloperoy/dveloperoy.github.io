@@ -2,38 +2,42 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Dveloperoy | Developer</title>
-<meta name="description" content="Dveloperoy — Rajdeep Roy, Developer & Security Researcher">
+<title>Dveloperoy | Rajdeep Roy</title>
+
+<meta name="description" content="Rajdeep Roy — Dveloperoy. Developer & Reverse Engineer.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A6E22C'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='58' font-family='Arial' font-weight='bold' fill='%23000'%3ED%3C/text%3E%3C/svg%3E">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 html{
-    width:100%;
     min-height:100%;
+    scroll-padding-top:90px;
 }
 
 body{
-    width:100%;
     min-height:100vh;
     overflow-x:hidden;
-    overflow-y:auto;
-    background:radial-gradient(circle at 50% -10%,#242424 0%,#101010 35%,#050505 75%);
+    background:radial-gradient(circle at 50% -10%,#252525 0%,#101010 38%,#050505 78%);
     color:#fff;
     font-family:Arial,sans-serif;
+}
+
+a{
+    color:inherit;
 }
 
 .particles{
     position:fixed;
     inset:0;
-    width:100%;
-    height:100%;
     overflow:hidden;
     pointer-events:none;
     z-index:0;
@@ -46,21 +50,13 @@ body{
     border-radius:50%;
     background:#A6E22C;
     opacity:0;
-    box-shadow:
-        0 0 8px #A6E22C,
-        0 0 18px rgba(166,226,44,.8),
-        0 0 30px rgba(166,226,44,.35);
-    animation:particleFloat 9s linear infinite;
+    box-shadow:0 0 8px #A6E22C,0 0 18px rgba(166,226,44,.8),0 0 30px rgba(166,226,44,.35);
+    animation:float 9s linear infinite;
 }
 
 .particle:nth-child(3n){
     width:10px;
     height:10px;
-}
-
-.particle:nth-child(4n){
-    width:5px;
-    height:5px;
 }
 
 .particle:nth-child(5n){
@@ -99,12 +95,14 @@ body{
 .particle:nth-child(29){left:86%;animation-delay:7.8s}
 .particle:nth-child(30){left:96%;animation-delay:4.8s}
 
-@keyframes particleFloat{
+@keyframes float{
     0%{
         transform:translate3d(0,115vh,0) scale(.3);
         opacity:0;
     }
-    10%{opacity:.9}
+    10%{
+        opacity:.9;
+    }
     25%{
         transform:translate3d(35px,85vh,0) scale(1);
     }
@@ -116,7 +114,6 @@ body{
         transform:translate3d(30px,20vh,0) scale(1.15);
         opacity:.8;
     }
-    90%{opacity:.4}
     100%{
         transform:translate3d(-25px,-15vh,0) scale(.4);
         opacity:0;
@@ -125,52 +122,90 @@ body{
 
 .glow{
     position:fixed;
-    width:400px;
-    height:400px;
+    width:420px;
+    height:420px;
     border-radius:50%;
-    background:radial-gradient(circle,rgba(166,226,44,.08),transparent 70%);
-    filter:blur(20px);
+    background:radial-gradient(circle,rgba(166,226,44,.09),transparent 70%);
+    filter:blur(25px);
     pointer-events:none;
-    animation:glowMove 10s ease-in-out infinite alternate;
+    animation:glow 11s ease-in-out infinite alternate;
     z-index:0;
 }
 
-@keyframes glowMove{
-    0%{transform:translate(-35vw,-25vh) scale(.8)}
-    50%{transform:translate(25vw,15vh) scale(1.1)}
-    100%{transform:translate(-5vw,35vh) scale(.9)}
+@keyframes glow{
+    0%{
+        transform:translate(-35vw,-25vh) scale(.8);
+    }
+    50%{
+        transform:translate(25vw,15vh) scale(1.1);
+    }
+    100%{
+        transform:translate(-5vw,35vh) scale(.9);
+    }
+}
+
+.nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:20;
+    display:flex;
+    gap:5px;
+    padding:7px;
+    background:rgba(15,15,15,.65);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+}
+
+.nav a{
+    padding:9px 13px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#aaa;
+    font-size:12px;
+    transition:.2s;
+}
+
+.nav a:hover{
+    color:#A6E22C;
+    background:rgba(166,226,44,.08);
+}
+
+.nav a.active{
+    color:#A6E22C;
+    background:rgba(166,226,44,.1);
+    box-shadow:inset 0 0 12px rgba(166,226,44,.05);
 }
 
 .page{
     position:relative;
     z-index:5;
     width:100%;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:25px;
+    max-width:760px;
+    margin:auto;
+    padding:110px 20px 40px;
 }
 
 .card{
-    position:relative;
-    width:100%;
-    max-width:520px;
-    padding:40px 28px;
+    padding:45px 30px;
     text-align:center;
     background:rgba(255,255,255,.055);
     border:1px solid rgba(255,255,255,.12);
-    border-radius:28px;
+    border-radius:30px;
     backdrop-filter:blur(22px);
     -webkit-backdrop-filter:blur(22px);
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        0 0 60px rgba(166,226,44,.04);
+    box-shadow:0 25px 80px rgba(0,0,0,.55),0 0 70px rgba(166,226,44,.035);
+    scroll-margin-top:90px;
+    transition:border-color .5s ease,box-shadow .5s ease,transform .5s ease;
 }
 
 .avatar{
-    width:95px;
-    height:95px;
+    width:100px;
+    height:100px;
     margin:0 auto 20px;
     display:flex;
     align-items:center;
@@ -178,145 +213,229 @@ body{
     border-radius:50%;
     background:#A6E22C;
     color:#000;
-    font-size:35px;
+    font-size:38px;
     font-weight:bold;
-    box-shadow:
-        0 0 30px rgba(166,226,44,.25),
-        0 0 70px rgba(166,226,44,.08);
-    animation:logoGlow 4s ease-in-out infinite;
+    box-shadow:0 0 35px rgba(166,226,44,.3),0 0 80px rgba(166,226,44,.08);
+    animation:avatarGlow 4s ease-in-out infinite;
 }
 
-@keyframes logoGlow{
+@keyframes avatarGlow{
     0%,100%{
-        box-shadow:
-            0 0 30px rgba(166,226,44,.22),
-            0 0 70px rgba(166,226,44,.08);
+        box-shadow:0 0 30px rgba(166,226,44,.22),0 0 70px rgba(166,226,44,.08);
     }
     50%{
-        box-shadow:
-            0 0 45px rgba(166,226,44,.42),
-            0 0 90px rgba(166,226,44,.14);
+        box-shadow:0 0 50px rgba(166,226,44,.42),0 0 100px rgba(166,226,44,.14);
     }
 }
 
 h1{
-    font-size:32px;
+    font-size:36px;
     margin-bottom:8px;
+}
+
+.username{
+    color:#888;
+    font-size:14px;
+    margin-bottom:12px;
 }
 
 .role{
     color:#A6E22C;
     font-size:15px;
-    margin-bottom:25px;
     text-shadow:0 0 10px rgba(166,226,44,.25);
 }
 
-.line{
-    width:60px;
-    height:2px;
-    background:#A6E22C;
-    margin:0 auto 25px;
-    box-shadow:0 0 12px rgba(166,226,44,.5);
-}
-
-.info{
-    text-align:left;
-}
-
-.item{
-    padding:15px 0;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.label{
-    display:block;
-    color:#888;
-    font-size:12px;
-    margin-bottom:5px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-.value{
-    color:#eee;
-    font-size:16px;
-}
-
-.contact{
-    display:block;
-    width:100%;
+.buttons{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
     margin-top:25px;
-    padding:14px 20px;
-    border-radius:14px;
+}
+
+.button{
+    padding:12px 18px;
+    border-radius:13px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.05);
+    transition:.2s;
+}
+
+.button:hover{
+    transform:translateY(-2px);
+    border-color:rgba(166,226,44,.4);
+    color:#A6E22C;
+}
+
+.button.primary{
     background:#A6E22C;
     color:#050505;
-    text-decoration:none;
-    font-size:15px;
-    font-weight:bold;
-    box-shadow:0 0 20px rgba(166,226,44,.18);
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
+    border-color:#A6E22C;
 }
 
-.contact:hover{
-    transform:translateY(-2px);
+.button.primary:hover{
     background:#B8FF2C;
-    box-shadow:0 0 30px rgba(166,226,44,.35);
+    color:#050505;
+    box-shadow:0 0 25px rgba(166,226,44,.25);
 }
 
-.contact:active{
-    transform:scale(.97);
+.section{
+    margin-top:20px;
+    padding:30px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:24px;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    scroll-margin-top:90px;
+    opacity:0;
+    transform:translateY(25px);
+    animation:show .7s ease forwards;
+    transition:border-color .6s ease,box-shadow .6s ease,background .6s ease,transform .6s ease;
+}
+
+.section.selected,
+.card.selected{
+    border-color:rgba(166,226,44,.55);
+    background:rgba(166,226,44,.055);
+    box-shadow:0 0 25px rgba(166,226,44,.12),0 0 65px rgba(166,226,44,.08),inset 0 0 25px rgba(166,226,44,.035);
+    transform:translateY(-2px);
+}
+
+@keyframes sectionGlow{
+    0%{
+        box-shadow:0 0 0 rgba(166,226,44,0);
+    }
+    35%{
+        box-shadow:0 0 35px rgba(166,226,44,.22),0 0 80px rgba(166,226,44,.10),inset 0 0 25px rgba(166,226,44,.04);
+    }
+    100%{
+        box-shadow:0 0 20px rgba(166,226,44,.10),0 0 55px rgba(166,226,44,.05),inset 0 0 20px rgba(166,226,44,.025);
+    }
+}
+
+.section.selected{
+    animation:show .7s ease forwards,sectionGlow 1.2s ease;
+}
+
+.card.selected{
+    animation:sectionGlow 1.2s ease;
+}
+
+.section:nth-of-type(2){
+    animation-delay:.1s;
+}
+
+.section:nth-of-type(3){
+    animation-delay:.2s;
+}
+
+@keyframes show{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.section-title{
+    color:#A6E22C;
+    font-size:18px;
+    margin-bottom:18px;
+}
+
+.about{
+    color:#aaa;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+.skill{
+    padding:9px 13px;
+    border-radius:12px;
+    background:rgba(166,226,44,.07);
+    border:1px solid rgba(166,226,44,.14);
+    color:#ddd;
+    font-size:12px;
+}
+
+.socials{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+.social{
+    padding:15px 10px;
+    text-align:center;
+    text-decoration:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    color:#ddd;
+    font-size:13px;
+    transition:.2s;
+}
+
+.social:hover{
+    transform:translateY(-2px);
+    color:#A6E22C;
+    border-color:rgba(166,226,44,.35);
 }
 
 .footer{
-    margin-top:28px;
-    color:#666;
+    text-align:center;
+    color:#555;
     font-size:12px;
+    margin-top:30px;
 }
 
 .accent{
     color:#A6E22C;
-    text-shadow:0 0 8px rgba(166,226,44,.3);
 }
 
-@media(max-width:480px){
+@media(max-width:600px){
+    .nav{
+        top:12px;
+        max-width:calc(100% - 24px);
+        width:max-content;
+    }
+
+    .nav a{
+        padding:8px 9px;
+        font-size:11px;
+    }
+
     .page{
-        min-height:100vh;
-        padding:20px 18px;
+        padding:90px 14px 30px;
     }
 
     .card{
-        width:100%;
-        max-width:390px;
-        padding:34px 22px;
-        border-radius:24px;
+        padding:35px 20px;
+        border-radius:25px;
     }
 
     .avatar{
         width:88px;
         height:88px;
-        font-size:32px;
+        font-size:33px;
     }
 
     h1{
-        font-size:29px;
+        font-size:30px;
     }
 
-    .particle{
-        width:6px;
-        height:6px;
-    }
-
-    .particle:nth-child(3n){
-        width:8px;
-        height:8px;
-    }
-
-    .particle:nth-child(5n){
-        width:10px;
-        height:10px;
+    .section{
+        padding:24px 20px;
+        border-radius:21px;
     }
 }
 </style>
@@ -325,97 +444,102 @@ h1{
 <body>
 
 <div class="particles">
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
+    <span class="particle"></span><span class="particle"></span>
 </div>
 
 <div class="glow"></div>
 
-<div class="page">
-    <div class="card">
+<nav class="nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+</nav>
 
+<main class="page">
+
+    <section class="card selected" id="home">
         <div class="avatar">D</div>
-
         <h1>Dveloperoy</h1>
+        <div class="role">Developer & Reverse Engineer</div>
+    </section>
 
-        <div class="role">
-            Developer & Security Researcher
+    <section class="section" id="about">
+        <div class="section-title">About Me</div>
+        <p class="about">
+            I'm Rajdeep Roy, username Dveloperoy.
+            I'm a developer and reverse Engineer
+            interested in building apps.
+        </p>
+    </section>
+
+    <section class="section" id="skills">
+        <div class="section-title">Skills & Interests</div>
+        <div class="skills">
+            <span class="skill">App Development</span>
+            <span class="skill">Reverse Engineer</span>
         </div>
+    </section>
 
-        <div class="line"></div>
-
-        <div class="info">
-
-            <div class="item">
-                <span class="label">Name</span>
-                <span class="value">Rajdeep Roy</span>
-            </div>
-
-            <div class="item">
-                <span class="label">Username</span>
-                <span class="value">@Dveloperoy</span>
-            </div>
-
-            <div class="item">
-                <span class="label">Role</span>
-                <span class="value">Developer & Security Researcher</span>
-            </div>
-
-            <div class="item">
-                <span class="label">Project</span>
-                <span class="value">Coming Soon</span>
-            </div>
-
-            <div class="item">
-                <span class="label">Focus</span>
-                <span class="value">App Developer • Reverse Engineering</span>
-            </div>
-
+    <section class="section" id="contact">
+        <div class="section-title">Let's Connect</div>
+        <div class="socials">
+            <a class="social" href="https://t.me/dveloperoy" target="_blank" rel="noopener noreferrer">
+                Telegram
+            </a>
         </div>
+    </section>
 
-        <a
-            class="contact"
-            href="https://t.me/dveloperoy"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Contact Me on Telegram
-        </a>
-
-        <div class="footer">
-            <span class="accent">@Dveloperoy</span> · © 2026
-        </div>
-
+    <div class="footer">
+        <span class="accent">@Dveloperoy</span> · © 2026
     </div>
-</div>
+
+</main>
+
+<script>
+const navLinks=document.querySelectorAll(".nav a");
+const allSections=document.querySelectorAll("#home,#about,#skills,#contact");
+
+navLinks.forEach(link=>{
+    link.addEventListener("click",function(e){
+        e.preventDefault();
+
+        const target=document.querySelector(this.getAttribute("href"));
+        if(!target)return;
+
+        const navHeight=document.querySelector(".nav").offsetHeight;
+        const top=target.getBoundingClientRect().top+window.pageYOffset-navHeight-20;
+
+        window.scrollTo({
+            top:top,
+            behavior:"smooth"
+        });
+
+        navLinks.forEach(item=>item.classList.remove("active"));
+        this.classList.add("active");
+
+        allSections.forEach(section=>section.classList.remove("selected"));
+
+        target.classList.remove("selected");
+        void target.offsetWidth;
+        target.classList.add("selected");
+    });
+});
+</script>
 
 </body>
 </html>
