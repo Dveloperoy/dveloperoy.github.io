@@ -8,7 +8,7 @@
 
 <meta name="description" content="Rajdeep Roy — Dveloperoy. Developer & Reverse Engineer.">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2334B7F1'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='58' font-family='Arial' font-weight='bold' fill='%23000'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="https://imageurlgenerator-serve.hrbrackishlifecarepvt.workers.dev/uploads/43376119-ecda-4073-bef8-19a13f360cab.jpg">
 
 <style>
 
@@ -27,7 +27,14 @@ html{
 body{
     min-height:100vh;
     overflow-x:hidden;
-    background:radial-gradient(circle at 50% -10%,#252525 0%,#101010 38%,#050505 78%);
+
+    background:radial-gradient(
+        circle at 50% -10%,
+        #252525 0%,
+        #101010 38%,
+        #050505 78%
+    );
+
     color:#fff;
     font-family:Arial,sans-serif;
 }
@@ -35,6 +42,9 @@ body{
 a{
     color:inherit;
 }
+
+
+/* ================= PARTICLES ================= */
 
 .particles{
     position:fixed;
@@ -46,15 +56,21 @@ a{
 
 .particle{
     position:absolute;
+
     width:7px;
     height:7px;
+
     border-radius:50%;
+
     background:#34B7F1;
+
     opacity:0;
+
     box-shadow:
         0 0 8px #34B7F1,
         0 0 18px rgba(52,183,241,.8),
         0 0 30px rgba(52,183,241,.35);
+
     animation:float 9s linear infinite;
 }
 
@@ -131,19 +147,29 @@ a{
 
 }
 
+
+/* ================= BACKGROUND GLOW ================= */
+
 .glow{
     position:fixed;
+
     width:420px;
     height:420px;
+
     border-radius:50%;
+
     background:radial-gradient(
         circle,
         rgba(52,183,241,.09),
         transparent 70%
     );
+
     filter:blur(25px);
+
     pointer-events:none;
+
     animation:glow 11s ease-in-out infinite alternate;
+
     z-index:0;
 }
 
@@ -163,20 +189,29 @@ a{
 
 }
 
+
+/* ================= NAV ================= */
+
 .nav{
     position:fixed;
+
     top:18px;
     left:50%;
+
     transform:translateX(-50%);
+
     z-index:20;
 
     display:flex;
+
     gap:5px;
 
     padding:7px;
 
     background:rgba(15,15,15,.65);
+
     border:1px solid rgba(255,255,255,.1);
+
     border-radius:18px;
 
     backdrop-filter:blur(18px);
@@ -187,11 +222,13 @@ a{
 
 .nav a{
     padding:9px 13px;
+
     border-radius:12px;
 
     text-decoration:none;
 
     color:#aaa;
+
     font-size:12px;
 
     transition:.2s;
@@ -199,20 +236,29 @@ a{
 
 .nav a:hover{
     color:#34B7F1;
+
     background:rgba(52,183,241,.08);
 }
 
 .nav a.active{
     color:#34B7F1;
+
     background:rgba(52,183,241,.1);
-    box-shadow:inset 0 0 12px rgba(52,183,241,.05);
+
+    box-shadow:
+        inset 0 0 12px rgba(52,183,241,.05);
 }
+
+
+/* ================= PAGE ================= */
 
 .page{
     position:relative;
+
     z-index:5;
 
     width:100%;
+
     max-width:760px;
 
     margin:auto;
@@ -220,102 +266,175 @@ a{
     padding:110px 20px 40px;
 }
 
+
+/* ================= COMMON GLASS ================= */
+
+.card,
+.section{
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45);
+}
+
+
+/* ================= HOME CARD ================= */
+
 .card{
+
     padding:45px 30px;
 
     text-align:center;
 
-    background:rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.12);
     border-radius:30px;
-
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        0 0 70px rgba(52,183,241,.035);
 
     scroll-margin-top:90px;
 
     transition:
-        border-color .5s ease,
-        box-shadow .5s ease,
-        transform .5s ease;
+        border-color .6s ease,
+        box-shadow .6s ease,
+        background .6s ease,
+        transform .6s ease;
 }
 
+.card.selected{
+
+    border-color:rgba(52,183,241,.55);
+
+    background:rgba(52,183,241,.055);
+
+    box-shadow:
+
+        0 0 25px rgba(52,183,241,.12),
+
+        0 0 65px rgba(52,183,241,.08),
+
+        inset 0 0 25px rgba(52,183,241,.035);
+
+    transform:translateY(-2px);
+
+    animation:sectionGlow 1.2s ease;
+}
+
+
+/* ================= LOGO ================= */
+
 .avatar{
+
     width:100px;
     height:100px;
 
     margin:0 auto 20px;
 
+    padding:4px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     border-radius:50%;
 
-    background:#34B7F1;
-    color:#000;
+    background:#050505;
 
-    font-size:38px;
-    font-weight:bold;
+    /* Normal thin circular border */
+
+    border:2px solid #34B7F1;
+
+    overflow:hidden;
 
     box-shadow:
-        0 0 35px rgba(52,183,241,.3),
-        0 0 80px rgba(52,183,241,.08);
+
+        0 0 20px rgba(52,183,241,.45),
+
+        0 0 45px rgba(52,183,241,.25),
+
+        0 0 80px rgba(52,183,241,.10);
 
     animation:avatarGlow 4s ease-in-out infinite;
+}
+
+.avatar img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:50%;
 }
 
 @keyframes avatarGlow{
 
     0%,100%{
+
         box-shadow:
-            0 0 30px rgba(52,183,241,.22),
-            0 0 70px rgba(52,183,241,.08);
+
+            0 0 18px rgba(52,183,241,.35),
+
+            0 0 45px rgba(52,183,241,.18),
+
+            0 0 80px rgba(52,183,241,.08);
     }
 
     50%{
+
         box-shadow:
-            0 0 50px rgba(52,183,241,.42),
+
+            0 0 28px rgba(52,183,241,.55),
+
+            0 0 60px rgba(52,183,241,.30),
+
             0 0 100px rgba(52,183,241,.14);
     }
 
 }
 
+
+/* ================= TEXT ================= */
+
 h1{
     font-size:36px;
+
     margin-bottom:8px;
 }
 
-.username{
-    color:#888;
-    font-size:14px;
-    margin-bottom:12px;
-}
-
 .role{
+
     color:#34B7F1;
+
     font-size:15px;
 
     text-shadow:
         0 0 10px rgba(52,183,241,.25);
 }
 
+
+/* ================= BUTTONS ================= */
+
 .buttons{
+
     display:flex;
+
     gap:10px;
 
     justify-content:center;
+
     flex-wrap:wrap;
 
     margin-top:25px;
 }
 
 .button{
+
     padding:12px 18px;
 
     border-radius:13px;
@@ -323,6 +442,7 @@ h1{
     text-decoration:none;
 
     font-size:13px;
+
     font-weight:bold;
 
     border:1px solid rgba(255,255,255,.1);
@@ -333,99 +453,106 @@ h1{
 }
 
 .button:hover{
+
     transform:translateY(-2px);
 
     border-color:rgba(52,183,241,.4);
+
     color:#34B7F1;
 }
 
 .button.primary{
+
     background:#34B7F1;
+
     color:#050505;
 
     border-color:#34B7F1;
 }
 
-.button.primary:hover{
-    background:#34B7F1;
-    color:#050505;
 
-    box-shadow:
-        0 0 25px rgba(52,183,241,.25);
-}
+/* ================= SECTIONS ================= */
 
 .section{
+
     margin-top:20px;
 
     padding:30px;
 
-    background:rgba(255,255,255,.045);
-
-    border:1px solid rgba(255,255,255,.09);
     border-radius:24px;
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
 
     scroll-margin-top:90px;
 
     opacity:0;
+
     transform:translateY(25px);
 
     animation:show .7s ease forwards;
 
     transition:
+
         border-color .6s ease,
+
         box-shadow .6s ease,
+
         background .6s ease,
+
         transform .6s ease;
 }
 
-.section.selected,
-.card.selected{
+.section.selected{
 
     border-color:rgba(52,183,241,.55);
 
     background:rgba(52,183,241,.055);
 
     box-shadow:
+
         0 0 25px rgba(52,183,241,.12),
+
         0 0 65px rgba(52,183,241,.08),
+
         inset 0 0 25px rgba(52,183,241,.035);
 
     transform:translateY(-2px);
+
+    animation:
+
+        show .7s ease forwards,
+
+        sectionGlow 1.2s ease;
 }
 
 @keyframes sectionGlow{
 
     0%{
-        box-shadow:0 0 0 rgba(52,183,241,0);
+
+        box-shadow:
+            0 0 0 rgba(52,183,241,0);
     }
 
     35%{
+
         box-shadow:
+
             0 0 35px rgba(52,183,241,.22),
+
             0 0 80px rgba(52,183,241,.10),
+
             inset 0 0 25px rgba(52,183,241,.04);
     }
 
     100%{
+
         box-shadow:
+
             0 0 20px rgba(52,183,241,.10),
+
             0 0 55px rgba(52,183,241,.05),
+
             inset 0 0 20px rgba(52,183,241,.025);
     }
 
-}
-
-.section.selected{
-    animation:
-        show .7s ease forwards,
-        sectionGlow 1.2s ease;
-}
-
-.card.selected{
-    animation:sectionGlow 1.2s ease;
 }
 
 .section:nth-of-type(2){
@@ -439,31 +566,46 @@ h1{
 @keyframes show{
 
     to{
+
         opacity:1;
+
         transform:translateY(0);
     }
 
 }
 
+
+/* ================= SECTION CONTENT ================= */
+
 .section-title{
+
     color:#34B7F1;
+
     font-size:18px;
+
     margin-bottom:18px;
 }
 
 .about{
+
     color:#aaa;
+
     line-height:1.8;
+
     font-size:14px;
 }
 
 .skills{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:9px;
 }
 
 .skill{
+
     padding:9px 13px;
 
     border-radius:12px;
@@ -477,16 +619,24 @@ h1{
     font-size:12px;
 }
 
+
+/* ================= SOCIAL ================= */
+
 .socials{
+
     display:grid;
+
     grid-template-columns:1fr;
+
     gap:10px;
 }
 
 .social{
+
     padding:15px 10px;
 
     text-align:center;
+
     text-decoration:none;
 
     border-radius:15px;
@@ -503,6 +653,7 @@ h1{
 }
 
 .social:hover{
+
     transform:translateY(-2px);
 
     color:#34B7F1;
@@ -510,7 +661,11 @@ h1{
     border-color:rgba(52,183,241,.35);
 }
 
+
+/* ================= FOOTER ================= */
+
 .footer{
+
     text-align:center;
 
     color:#555;
@@ -524,41 +679,58 @@ h1{
     color:#34B7F1;
 }
 
+
+/* ================= MOBILE ================= */
+
 @media(max-width:600px){
 
     .nav{
+
         top:12px;
 
         max-width:calc(100% - 24px);
+
         width:max-content;
     }
 
     .nav a{
+
         padding:8px 9px;
+
         font-size:11px;
     }
 
     .page{
+
         padding:90px 14px 30px;
     }
 
     .card{
+
         padding:35px 20px;
+
         border-radius:25px;
     }
 
     .avatar{
+
         width:88px;
         height:88px;
-        font-size:33px;
+
+        padding:3px;
+
+        border-width:2px;
     }
 
     h1{
+
         font-size:30px;
     }
 
     .section{
+
         padding:24px 20px;
+
         border-radius:21px;
     }
 
@@ -568,6 +740,9 @@ h1{
 </head>
 
 <body>
+
+
+<!-- ================= PARTICLES ================= -->
 
 <div class="particles">
 
@@ -606,7 +781,11 @@ h1{
 
 </div>
 
+
 <div class="glow"></div>
+
+
+<!-- ================= NAV ================= -->
 
 <nav class="nav">
 
@@ -628,12 +807,23 @@ h1{
 
 </nav>
 
+
+<!-- ================= MAIN ================= -->
+
 <main class="page">
+
+
+<!-- HOME -->
 
 <section class="card selected" id="home">
 
     <div class="avatar">
-        D
+
+        <img
+            src="https://imageurlgenerator-serve.hrbrackishlifecarepvt.workers.dev/uploads/43376119-ecda-4073-bef8-19a13f360cab.jpg"
+            alt="Dveloperoy Logo"
+        >
+
     </div>
 
     <h1>
@@ -647,6 +837,8 @@ h1{
 </section>
 
 
+<!-- ABOUT -->
+
 <section class="section" id="about">
 
     <div class="section-title">
@@ -654,13 +846,17 @@ h1{
     </div>
 
     <p class="about">
+
         I'm Rajdeep Roy, username Dveloperoy.
         I'm a developer and reverse Engineer
         interested in building apps.
+
     </p>
 
 </section>
 
+
+<!-- SKILLS -->
 
 <section class="section" id="skills">
 
@@ -682,6 +878,8 @@ h1{
 
 </section>
 
+
+<!-- CONTACT -->
 
 <section class="section" id="contact">
 
@@ -714,6 +912,8 @@ h1{
 </section>
 
 
+<!-- FOOTER -->
+
 <div class="footer">
 
     <span class="accent">
@@ -724,12 +924,14 @@ h1{
 
 </div>
 
+
 </main>
 
 
 <script>
 
-const navLinks = document.querySelectorAll(".nav a");
+const navLinks =
+    document.querySelectorAll(".nav a");
 
 const allSections =
     document.querySelectorAll(
@@ -761,9 +963,9 @@ navLinks.forEach(link => {
 
         window.scrollTo({
 
-            top: top,
+            top:top,
 
-            behavior: "smooth"
+            behavior:"smooth"
 
         });
 
